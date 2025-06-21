@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Create a pre-configured Axios instance
 const API = axios.create({
-  baseURL: "http://localhost:5000/api", // Adjust this if your backend has a specific prefix like /api
+  baseURL: "http://localhost:5000", // Adjust this if your backend has a specific prefix like /api
   headers: {
     "Content-Type": "application/json",
   },

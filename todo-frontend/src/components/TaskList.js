@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../api";
 import "../App.css";
 
 export default function TaskList() {
@@ -7,28 +7,32 @@ export default function TaskList() {
   const [taskText, setTaskText] = useState("");
 
   const fetchTasks = async () => {
-    const res = await axios.get("http://localhost:5000/tasks", {
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-    });
-    setTasks(res.data);
+    try {
+      const res = await API.get("/api/tasks");
+      setTasks(res.data);
+    } catch (err) {
+      alert("Failed to fetch tasks");
+    }
   };
 
   const handleAddTask = async () => {
     if (!taskText) return;
-    await axios.post(
-      "http://localhost:5000/tasks",
-      { text: taskText },
-      { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
-    );
-    setTaskText("");
-    fetchTasks();
+    try {
+      await API.post("/api/tasks", { text: taskText });
+      setTaskText("");
+      fetchTasks();
+    } catch (err) {
+      alert("Failed to add task");
+    }
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/tasks/${id}`, {
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-    });
-    fetchTasks();
+    try {
+      await API.delete(`/api/tasks/${id}`);
+      fetchTasks();
+    } catch (err) {
+      alert("Failed to delete task");
+    }
   };
 
   useEffect(() => {
@@ -56,10 +60,9 @@ export default function TaskList() {
         >
           Logout
         </button>
-
         {tasks.map((task) => (
           <li key={task.id}>
-            {task.text}{" "}
+            {task.text}
             <button onClick={() => handleDelete(task.id)}>Delete</button>
           </li>
         ))}
