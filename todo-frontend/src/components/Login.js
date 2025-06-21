@@ -10,12 +10,10 @@ export default function Login() {
     e.preventDefault();
     try {
       const res = await API.post("/auth/login", { email, password });
-
       localStorage.setItem("token", res.data.token);
       window.location.href = "/tasks";
     } catch (err) {
-      console.error(err);
-      alert("Login failed: " + (err.response?.data?.message || err.message));
+      alert("Login failed");
     }
   };
 

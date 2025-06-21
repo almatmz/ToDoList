@@ -10,14 +10,10 @@ export default function Register() {
     e.preventDefault();
     try {
       await API.post("/auth/register", { email, password });
-
-      alert("Registration successful!");
+      alert("Registration successful");
       window.location.href = "/login";
     } catch (err) {
-      console.error(err.response || err.message);
-      alert(
-        "Registration failed: " + (err.response?.data?.message || err.message)
-      );
+      alert("Registration failed");
     }
   };
 
