@@ -1,3 +1,4 @@
+// File: src/pages/TaskList.js
 import React, { useEffect, useState } from "react";
 import API from "../api";
 import "../App.css";
@@ -8,7 +9,7 @@ export default function TaskList() {
 
   const fetchTasks = async () => {
     try {
-      const res = await API.get("/api/tasks");
+      const res = await API.get("/tasks"); // /api prefix is already in API baseURL
       setTasks(res.data);
     } catch (err) {
       alert("Failed to fetch tasks");
@@ -18,7 +19,7 @@ export default function TaskList() {
   const handleAddTask = async () => {
     if (!taskText) return;
     try {
-      await API.post("/api/tasks", { text: taskText });
+      await API.post("/tasks", { title: taskText }); // Match backend expects { title }
       setTaskText("");
       fetchTasks();
     } catch (err) {
@@ -28,7 +29,7 @@ export default function TaskList() {
 
   const handleDelete = async (id) => {
     try {
-      await API.delete(`/api/tasks/${id}`);
+      await API.delete(`/tasks/${id}`);
       fetchTasks();
     } catch (err) {
       alert("Failed to delete task");
@@ -62,7 +63,7 @@ export default function TaskList() {
         </button>
         {tasks.map((task) => (
           <li key={task.id}>
-            {task.text}
+            {task.title} {/* title instead of text */}
             <button onClick={() => handleDelete(task.id)}>Delete</button>
           </li>
         ))}
