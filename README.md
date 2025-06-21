@@ -7,7 +7,10 @@ This is a full-stack **To-Do List** web application built with **React (frontend
 ## 📂 Project Structure
 
 To-Do-List/
+
 ├── to-do-list-backend/ # Node.js backend with Express & PostgreSQL
+
+
 └── todo-frontend/ # React frontend using Axios & React Router
 
 
