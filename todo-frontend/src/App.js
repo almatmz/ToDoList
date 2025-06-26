@@ -8,6 +8,7 @@ import {
 import Login from "./components/Login";
 import Register from "./components/Register";
 import TaskList from "./components/TaskList";
+import Home from "./components/Home";
 
 function App() {
   const isLoggedIn = !!localStorage.getItem("token");
@@ -17,15 +18,13 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={
-            isLoggedIn ? <Navigate to="/tasks" /> : <Navigate to="/login" />
-          }
+          element={isLoggedIn ? <Navigate to="/tasks" /> : <Home />}
         />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
           path="/tasks"
-          element={isLoggedIn ? <TaskList /> : <Navigate to="/login" />}
+          element={isLoggedIn ? <TaskList /> : <Navigate to="/" />}
         />
       </Routes>
     </Router>
