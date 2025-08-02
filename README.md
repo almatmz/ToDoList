@@ -10,13 +10,12 @@ To-Do-List/
 
 ├── to-do-list-backend/ # Node.js backend with Express & PostgreSQL
 
-
 └── todo-frontend/ # React frontend using Axios & React Router
-
 
 ## ⚙️ Backend
 
 ### 🧱 Tech Stack
+
 - Node.js
 - Express.js
 - PostgreSQL
@@ -24,6 +23,7 @@ To-Do-List/
 - bcrypt for Password Hashing
 
 ### 🔐 Features
+
 - User registration and login
 - JWT-based authentication middleware
 - Task CRUD operations (Create, Read, Update, Delete)
@@ -32,7 +32,8 @@ To-Do-List/
 💻 Frontend
 
 🧱 Tech Stack
- - React.js
+
+- React.js
 
 - Axios
 
@@ -41,6 +42,7 @@ To-Do-List/
 - Custom CSS
 
 🌟 Features
+
 - Register and login pages
 
 - Authentication token stored in localStorage
@@ -51,8 +53,6 @@ To-Do-List/
 
 - Responsive and clean UI
 
-
-
 📮 API Endpoints
 Auth
 
@@ -61,6 +61,7 @@ Auth
 - POST /api/auth/login – Login and receive JWT token
 
 Tasks (protected)
+
 - GET /api/tasks – Get all tasks for logged-in user
 
 - POST /api/tasks – Add new task
@@ -71,15 +72,15 @@ Tasks (protected)
 
 ✅ To-Do Features
 
- - Register/Login functionality
+- Register/Login functionality
 
- - Secure token-based authentication
+- Secure token-based authentication
 
- - Create, edit, and delete tasks
+- Create, edit, and delete tasks
 
- - Logout
+- Logout
 
- - Clean UI/UX design
+- Clean UI/UX design
 
 ## 🌐 Live Website
 
