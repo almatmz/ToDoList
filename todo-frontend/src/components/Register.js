@@ -9,7 +9,7 @@ export default function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await API.post("/auth/register", { email, password });
+      await API.post("api/auth/register", { email, password });
       alert("Registration successful");
       window.location.href = "/login";
     } catch (err) {
