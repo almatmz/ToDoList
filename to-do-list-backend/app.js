@@ -6,6 +6,7 @@ require("dotenv").config();
 
 app.use(express.json());
 
+const cors = require("cors");
 app.use(
   cors({
     origin: "https://to-do-list-kohl-one.vercel.app",
