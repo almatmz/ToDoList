@@ -6,11 +6,11 @@ const pool = new Pool({
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  port: Number(process.env.DB_PORT),
   ssl: {
     rejectUnauthorized: false,
   },
-  family: 4, // enforce IPv4
+  family: 4, // force IPv4
 });
 
 module.exports = pool;
