@@ -13,6 +13,7 @@ exports.register = async (req, res) => {
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
+    console.error("Registration error:", err);
     res
       .status(500)
       .json({ message: "User registration failed", error: err.message });
